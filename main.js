@@ -42,28 +42,22 @@ let timeId = setInterval(changeSlide, time);
 
 //klawiszowe zmiany
 
-document.addEventListener('keydown', function(e){
+window.addEventListener('keydown', function(e){
     if(e.keyCode == 37){
-        flag = false;
         clearInterval(timeId);
         if(active === 0){
             active = number;
         }
         active--;
-        image.src = slideList[active].img;
-        h1.textContent = slideList[active].text;
-        changeDot();
-        timeId = setInterval(changeSlide, time);
     }else if(e.keyCode == 39){
-        flag = false;
         clearInterval(timeId);
         active++;
         if(active === slideList.length){
             active = 0;
         }
-        image.src = slideList[active].img;
+    }
+    image.src = slideList[active].img;
         h1.textContent = slideList[active].text;
         changeDot();
         timeId = setInterval(changeSlide, time);
-    }
 })
